@@ -1,8 +1,10 @@
+const jobsDirPrefix = 'jobs/';
+
 module.exports = {
     worldtravellen: {
         url: 'https://worldtravellen.com/',
         selector: 'section #polaroid div',
-        filePath: 'posts_worldtravellen.json',
+        filePath: jobsDirPrefix + 'posts_worldtravellen.json',
         extractors: {
             title: 'h2',
             url: 'a'

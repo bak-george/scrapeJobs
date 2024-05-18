@@ -11,10 +11,16 @@ class WebsiteData {
         try {
             await this.page.goto(this.url);
             const data = await this.page.$$eval(this.selector, (elements, extractors) => 
-                elements.map((e) => ({
-                    title: e.querySelector(extractors.title).innerText,
-                    url: e.querySelector(extractors.url).href,
-                })), extractors 
+                elements.map((e) => {
+                    const extractedData = {};
+                    if (extractors.title) {
+                        extractedData.title = e.querySelector(extractors.title).innerText;
+                    }
+                    if (extractors.url) {
+                        extractedData.url = e.querySelector(extractors.url).href;
+                    }
+                    return extractedData;
+                }), this.extractors 
             );
             return data;
         } catch (error) {

@@ -1,3 +1,5 @@
 node_modules/
 websitesConfig.js
 jobs.json
+jobs/*
+!jobs/posts_worldtravellen.json
