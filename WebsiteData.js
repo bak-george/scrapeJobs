@@ -1,4 +1,3 @@
-// WebsiteData.js
 class WebsiteData {
     constructor(page, url, selector, filePath, extractors) {
         this.page = page;
