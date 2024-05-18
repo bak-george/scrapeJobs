@@ -3,6 +3,10 @@ module.exports = {
         url: 'https://worldtravellen.com/',
         selector: 'section #polaroid div',
         filePath: 'posts_worldtravellen.json',
+        extractors: {
+            title: 'h2',
+            url: 'a'
+        }
     },
     // Add more websites here
     // example: { example: { url: 'https://example.com/', selector: '.example-selector', filePath: 'posts_example.json' } }
