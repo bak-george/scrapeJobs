@@ -1,3 +1,4 @@
+// index.js
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const WebsiteData = require('./WebsiteData');
@@ -13,8 +14,8 @@ const websites = require('./websitesConfig');
         for (const key in websites) {
             if (websites.hasOwnProperty(key)) {
                 const website = websites[key];
-                const websiteData = new WebsiteData(page, website.url, website.selector, website.filePath);
-                const postData = await websiteData.scrapeData();
+                const websiteData = new WebsiteData(page, website.url, website.selector, website.filePath, website.extractors); // Pass extractors object to WebsiteData constructor
+                const postData = await websiteData.scrapeData(website.extractors); // Pass extractors object to scrapeData method
 
                 const prettifiedData = JSON.stringify(postData, null, 2);
                 fs.writeFileSync(website.filePath, prettifiedData);
