@@ -12,8 +12,8 @@ class WebsiteData {
             await this.page.goto(this.url);
             const data = await this.page.$$eval(this.selector, (elements, extractors) => 
                 elements.map((e) => ({
-                    title: e.querySelector(extractors.title).innerText || "",
-                    url: e.querySelector(extractors.url).href || "",
+                    title: e.querySelector(extractors.title).innerText,
+                    url: e.querySelector(extractors.url).href,
                 })), extractors 
             );
             return data;

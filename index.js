@@ -14,9 +14,9 @@ const websites = require('./websitesConfig');
             if (websites.hasOwnProperty(key)) {
                 const website = websites[key];
                 const websiteData = new WebsiteData(page, website.url, website.selector, website.filePath, website.extractors); 
-                const postData = await websiteData.scrapeData(website.extractors); 
+                const jobData = await websiteData.scrapeData(website.extractors); 
 
-                const prettifiedData = JSON.stringify(postData, null, 2);
+                const prettifiedData = JSON.stringify(jobData, null, 2);
                 fs.writeFileSync(website.filePath, prettifiedData);
                 console.log(`File saved successfully for ${website.url} with prettified JSON.`);
             }
